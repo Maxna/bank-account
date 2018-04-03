@@ -8,26 +8,34 @@
     <title>Bank Account</title>
   </head>
   <body>
-    <div class="container-fluid">
+    <div class="container">
       <h1>Welcome to the Tucci-Bank</h1>
       <div class="row">
         <form id="bank">
-          <div class="col-md">
-            <div class="account">
-              <label for="">Register your account:</label>
-              <input id="account" type="text">
+          <div id="account" class="bg-info col-md">
+            <div class="form-group">
+              <h2>Register your account:</h2>
+              <label for="name">Name</label>
+              <input class="form-control" id="name" type="text">
+              <label for="name">Initial Deposit</label>
+              <input class="form-control" id="initialDeposit" type="text">
             </div>
           </div>
-          <div class="col-md">
-            <div class="exchange">
+          <div id="exchange" class="bg-info col-md">
+            <div class="form-group">
               <h2>Deposit or withdraw</h2>
-              <label for="">Deposit Amount</label>
-              <input id="deposit" type="text">
-              <label for="">Withdrawal Amount</label>
-              <input id="withdraw" type="text">
+              <label for="deposit">Deposit Amount</label>
+              <input class="form-control" id="deposit" type="text">
+              <label for="withdraw">Withdrawal Amount</label>
+              <input class="form-control" id="withdrawal" type="text">
             </div>
           </div>
+          <button type="submit" class="btn btn-danger">Submit</button>
         </form>
+      </div>
+      <div id="output">
+        <h3>Current Balance:</h3>
+        <p><span class="balance"></span></p>
       </div>
     </div>
   </body>

@@ -1,17 +1,26 @@
-// backend logic
-function Register(initial, subsequent, withdrawal) {
+// business logic
+function bankAccount(initialDeposit, deposit, withdrawal) {
   this.initial = initialDeposit;
-  this.subsequent = deposit;
-  this.withdrawal = withdraw;
+  this.deposit = deposit;
+  this.withdrawal = withdrawal;
 }
 
-Register.prototype.balance = function() {
-  var balance = "";
-
+bankAccount.prototype.balance = function() {
+  return this.initial + this.deposit - this.withdrawal;
 }
 
 
-// User interface
+// User interface logic
 $(function() {
-  newBankAccount = new bankAccount ();
+  $("#bank").submit(function(event) {
+    event.preventDefault();
+
+    var inputName = $("#name").val();
+    var inputInitialDeposit = parseInt($("#initialDeposit").val());
+    var inputDeposit = parseInt($("#deposit").val());
+    var inputWithdrawal = parseInt($("#withdrawal").val());
+    newBankAccount = new bankAccount (inputInitialDeposit, inputDeposit, inputWithdrawal);
+    var balance = newBankAccount.balance();
+    $(".balance").text(balance);
+  });
 });
